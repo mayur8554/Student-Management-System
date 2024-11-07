@@ -1,0 +1,136 @@
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| student_123        |
+| student_info       |
+| studentdb          |
+| sys                |
++--------------------+
+7 rows in set (0.06 sec)
+
+
+mysql> CREATE DATABASE student_management;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE student_management;
+Database changed
+mysql>
+mysql> CREATE TABLE students (
+    ->     RollNum INT PRIMARY KEY,
+    ->     Name VARCHAR(50),
+    ->     Age INT,
+    ->     Grade VARCHAR(10)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++------------------------------+
+| Tables_in_student_management |
++------------------------------+
+| students                     |
++------------------------------+
+1 row in set (0.02 sec)
+
+mysql> desc students;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| RollNum | int         | NO   | PRI | NULL    |       |
+| Name    | varchar(50) | YES  |     | NULL    |       |
+| Age     | int         | YES  |     | NULL    |       |
+| Grade   | varchar(10) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> ALTER TABLE students
+    -> MODIFY RollNum INT AUTO_INCREMENT;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from studnets;
+ERROR 1146 (42S02): Table 'student_management.studnets' doesn't exist
+mysql> select * from students;
++---------+-------+------+-------+
+| RollNum | Name  | Age  | Grade |
++---------+-------+------+-------+
+|       1 | mayur |   24 | a+    |
++---------+-------+------+-------+
+1 row in set (0.01 sec)
+
+mysql> select * from students;
++---------+----------+------+-------+
+| RollNum | Name     | Age  | Grade |
++---------+----------+------+-------+
+|       1 | mayur    |   24 | a+    |
+|       2 | vishnavi |   21 | A++   |
++---------+----------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from students;
++---------+----------+------+-------+
+| RollNum | Name     | Age  | Grade |
++---------+----------+------+-------+
+|       1 | mayur    |   24 | a+    |
+|       2 | vishnavi |   21 | A++   |
+|       3 | pranamay |   23 | b+    |
++---------+----------+------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from students;
++---------+----------+------+-------+
+| RollNum | Name     | Age  | Grade |
++---------+----------+------+-------+
+|       1 | mayur    |   24 | a+    |
+|       3 | pranamay |   23 | b+    |
++---------+----------+------+-------+
+2 rows in set (0.01 sec)
+
+mysql> ALTER TABLE students MODIFY RollNum INT;
+Query OK, 2 rows affected (0.07 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from students;
++---------+----------+------+-------+
+| RollNum | Name     | Age  | Grade |
++---------+----------+------+-------+
+|       1 | mayur    |   24 | a+    |
+|       3 | pranamay |   23 | b+    |
++---------+----------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> ALTER TABLE students MODIFY RollNum INT;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from students;
++---------+----------+------+-------+
+| RollNum | Name     | Age  | Grade |
++---------+----------+------+-------+
+|       1 | mayur    |   24 | a+    |
+|       3 | pranamay |   23 | b+    |
++---------+----------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql>  ALTER TABLE students
+    ->  MODIFY RollNum INT AUTO_INCREMENT;
+Query OK, 2 rows affected (0.04 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from students;
++---------+----------+------+-------+
+| RollNum | Name     | Age  | Grade |
++---------+----------+------+-------+
+|       1 | mayur    |   24 | a+    |
+|       3 | pranamay |   23 | b+    |
+|       4 | sakshi   |   22 | ab    |
++---------+----------+------+-------+
+3 rows in set (0.00 sec)
+
+mysql> ALTER TABLE students MODIFY RollNum INT;
+Query OK, 3 rows affected (0.06 sec)
+Records: 3  Duplicates: 0  Warnings: 0
